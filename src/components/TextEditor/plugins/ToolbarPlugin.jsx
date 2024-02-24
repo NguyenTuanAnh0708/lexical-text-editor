@@ -39,7 +39,21 @@ import {
     getDefaultCodeLanguage,
     getCodeLanguages
 } from "@lexical/code";
-
+// icon 
+import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
+import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight';
+import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter';
+import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
+import InsertLinkIcon from '@mui/icons-material/InsertLink';
+import CodeIcon from '@mui/icons-material/Code';
+import FormatStrikethroughIcon from '@mui/icons-material/FormatStrikethrough';
+import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined';
+import FormatItalicIcon from '@mui/icons-material/FormatItalic';
+import FormatBoldIcon from '@mui/icons-material/FormatBold';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import UndoIcon from '@mui/icons-material/Undo';
+import RedoIcon from '@mui/icons-material/Redo';
+// end icon
 const LowPriority = 1;
 
 const supportedBlockTypes = new Set([
@@ -545,7 +559,7 @@ export default function ToolbarPlugin() {
                 className="toolbar-item spaced"
                 aria-label="Undo"
             >
-                <i className="format undo" />
+                <UndoIcon />
             </button>
             <button
                 disabled={!canRedo}
@@ -555,7 +569,7 @@ export default function ToolbarPlugin() {
                 className="toolbar-item"
                 aria-label="Redo"
             >
-                <i className="format redo" />
+                <RedoIcon />
             </button>
             <Divider />
             {supportedBlockTypes.has(blockType) && (
@@ -569,7 +583,7 @@ export default function ToolbarPlugin() {
                     >
                         <span className={"icon block-type " + blockType} />
                         <span className="text">{blockTypeToBlockName[blockType]}</span>
-                        <i className="chevron-down" />
+                        <ExpandMoreIcon />
                     </button>
                     {showBlockOptionsDropDown &&
                         createPortal(
@@ -592,7 +606,7 @@ export default function ToolbarPlugin() {
                         options={codeLanguges}
                         value={codeLanguage}
                     />
-                    <i className="chevron-down inside" />
+                    <ExpandMoreIcon />
                 </>
             ) : (
                 <>
@@ -603,7 +617,7 @@ export default function ToolbarPlugin() {
                         className={"toolbar-item spaced " + (isBold ? "active" : "")}
                         aria-label="Format Bold"
                     >
-                        <i className="format bold" />
+                        <FormatBoldIcon />
                     </button>
                     <button
                         onClick={() => {
@@ -612,7 +626,7 @@ export default function ToolbarPlugin() {
                         className={"toolbar-item spaced " + (isItalic ? "active" : "")}
                         aria-label="Format Italics"
                     >
-                        <i className="format italic" />
+                        <FormatItalicIcon />
                     </button>
                     <button
                         onClick={() => {
@@ -621,7 +635,7 @@ export default function ToolbarPlugin() {
                         className={"toolbar-item spaced " + (isUnderline ? "active" : "")}
                         aria-label="Format Underline"
                     >
-                        <i className="format underline" />
+                        <FormatUnderlinedIcon />
                     </button>
                     <button
                         onClick={() => {
@@ -632,7 +646,7 @@ export default function ToolbarPlugin() {
                         }
                         aria-label="Format Strikethrough"
                     >
-                        <i className="format strikethrough" />
+                        <FormatStrikethroughIcon />
                     </button>
                     <button
                         onClick={() => {
@@ -641,14 +655,14 @@ export default function ToolbarPlugin() {
                         className={"toolbar-item spaced " + (isCode ? "active" : "")}
                         aria-label="Insert Code"
                     >
-                        <i className="format code" />
+                        <CodeIcon />
                     </button>
                     <button
                         onClick={insertLink}
                         className={"toolbar-item spaced " + (isLink ? "active" : "")}
                         aria-label="Insert Link"
                     >
-                        <i className="format link" />
+                        <InsertLinkIcon />
                     </button>
                     {isLink &&
                         createPortal(<FloatingLinkEditor editor={editor} />, document.body)}
@@ -660,7 +674,7 @@ export default function ToolbarPlugin() {
                         className="toolbar-item spaced"
                         aria-label="Left Align"
                     >
-                        <i className="format left-align" />
+                        <FormatAlignLeftIcon />
                     </button>
                     <button
                         onClick={() => {
@@ -669,7 +683,7 @@ export default function ToolbarPlugin() {
                         className="toolbar-item spaced"
                         aria-label="Center Align"
                     >
-                        <i className="format center-align" />
+                        <FormatAlignCenterIcon />
                     </button>
                     <button
                         onClick={() => {
@@ -678,7 +692,7 @@ export default function ToolbarPlugin() {
                         className="toolbar-item spaced"
                         aria-label="Right Align"
                     >
-                        <i className="format right-align" />
+                        <FormatAlignRightIcon />
                     </button>
                     <button
                         onClick={() => {
@@ -687,7 +701,7 @@ export default function ToolbarPlugin() {
                         className="toolbar-item"
                         aria-label="Justify Align"
                     >
-                        <i className="format justify-align" />
+                        <FormatAlignJustifyIcon />
                     </button>{" "}
                 </>
             )}
